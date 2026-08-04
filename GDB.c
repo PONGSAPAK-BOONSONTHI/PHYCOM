@@ -6,6 +6,7 @@ int main() {
     char c='z', d='M';
 
     j*(i-7)>(y-2);
+    j*=(int)(x+z)/2;
 
     return 0;
 }
