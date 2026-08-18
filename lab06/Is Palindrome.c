@@ -5,18 +5,11 @@ int main() {
     scanf("%s", mas);
 
     int mas_count = 0;
-    for (int i = 0; mas[i] != '\0'; i++) mas_count = i + 1;
-
-    char temp[101];
-    int index = 0;
-    for (int i = mas_count - 1; i >= 0; i--) {
-        temp[index++] = mas[i];
-    }
-    temp[index] = '\0';
+    for (int i = 0; mas[i] != '\0'; i++) mas_count = i;
 
     int isPalindrome = 1;
     for (int i = 0; i < mas_count; i++) {
-        if (temp[i] != mas[i]) {
+        if (mas[i] != mas[mas_count - i]) {
             isPalindrome = 0;
             break;
         }
