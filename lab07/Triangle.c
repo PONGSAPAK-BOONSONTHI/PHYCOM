@@ -5,18 +5,17 @@ double Pow(double val, int n) {
     return result;
 }
 
-double Sqrt(double val, int n) {
-    double guess = val / n;
-    for (int i = 0; i < 100; i++) 
-        guess = ((n - 1) * guess + val / Pow(guess, n - 1)) / n;
-    return guess;
+double Sqrt(double val) {
+    double g = val / 2;
+    for (int i = 0; i < 100; i++) g = (g + val / g) / 2.0;
+    return g;
 }
 
 int main() {
     double a, b, c, per, area;
     scanf("%lf", &a);
     scanf("%lf", &b);
-    c = Sqrt(Pow(a, 2) + Pow(b, 2), 2);
+    c = Sqrt(Pow(a, 2) + Pow(b, 2));
     per = a + b + c;
     area = b * a * 0.5;
     printf("Perimeter: %.2lf\n", per);

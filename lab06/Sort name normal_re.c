@@ -11,7 +11,7 @@ int upper(char mas[]) {
 
 int cmp(char Arr1[], char Arr2[]) {
     // arr1 == arr2 : ? = 1
-    int i = 0;
+    int i = 0;  
     while (Arr1[i] != '\0' && Arr2[i] != '\0') {
         if (Arr1[i] != Arr2[i]) {
             return Arr1[i] < Arr2[i];
