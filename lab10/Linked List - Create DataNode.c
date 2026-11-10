@@ -17,17 +17,17 @@ int main() {
   DataNode *pNew = createDataNode(data);
 
   printf("%s\n", pNew->data);
-  printf("%p\n", (void*)pNew->next);
+  printf("%p\n", (void*) pNew->next);
 
   return 0;
 }
 
-DataNode *createDataNode(char* data) {
+DataNode *createDataNode(char *data) {
   unsigned int len = strlen(data);
-  char *text_new = (char*) malloc(sizeof(char) * (len + 1));
+  char *text_new = (char*) malloc(sizeof(char) + (len + 1));
   strcpy(text_new, data);
 
-  DataNode *pNew = (DataNode*) malloc(sizeof(DataNode));
+  DataNode *pNew = (DataNode *) malloc(sizeof(DataNode));
   pNew->data = text_new;
   pNew->next = NULL;
   return pNew;

@@ -14,18 +14,41 @@ typedef struct SinglyLinkedList {
 } SinglyLinkedList;
 
 DataNode *createDataNode(char *data);
+SinglyLinkedList *createSinglyLinkedList();
+void traverse(SinglyLinkedList *list);
+void insert_last(SinglyLinkedList *list, char *data);
 
 int main() {
-    SinglyLinkedList *mylist = createSinglyLinkedList();
-
+    SinglyLinkedList* mylist = createSinglyLinkedList();
+    int n;
+    char condition;
     char data[101];
-    scanf("%[^\n]s", data);
+    scanf("%d", &n);
 
-    DataNode *pNew = createDataNode(data);
+    for (int i = 0; i < n; i++) {
+        scanf(" %c: %[^\n]s", &condition, data);
 
-    printf("%d\n", mylist->head->data);
-    printf("%s\n", mylist->count);
+        if (condition == 'F') {
+            ;
+        } else if (condition == 'L') {
+            insert_last(mylist, data);
+        } else if (condition == 'D') {
+            ;
+        } else {
+            printf("Invalid Condition!\n");
+        }
+    }
 
+    traverse(mylist);
+
+    DataNode *current = mylist->head;
+    while (current != NULL) {
+        free(current->data);
+        DataNode* temp = current;
+        current = current->next;
+        free(temp);
+    }
+    free(mylist);
     return 0;
 }
 
@@ -43,7 +66,7 @@ DataNode *createDataNode(char *data) {
 
 // Create a new SinglyLinkedList
 SinglyLinkedList *createSinglyLinkedList() {
-    SinglyLinkedList *mylist = (SinglyLinkedList *)molloc(sizeof(SinglyLinkedList));
+    SinglyLinkedList *mylist = (SinglyLinkedList *) malloc(sizeof(SinglyLinkedList));
     mylist->count = 0;
     mylist->head = NULL;
 
